@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function TodoBox({ data, updateIt, checkIt }) {
+export default function TodoBox({ data, updateIt, checkIt, deleteItem }) {
   const [isEdit, setIsEdit] = useState(false);
   const [text, setText] = useState(data);
   const [isFinished, setIsFinished] = useState(false);
@@ -35,7 +35,13 @@ export default function TodoBox({ data, updateIt, checkIt }) {
       >
         {isEdit ? "save" : "edit"}
       </button>
-      <button>Delete</button>
+      <button
+        onClick={() => {
+          deleteItem();
+        }}
+      >
+        Delete
+      </button>
     </div>
   );
 }

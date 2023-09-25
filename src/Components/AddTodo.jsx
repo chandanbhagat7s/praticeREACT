@@ -1,5 +1,6 @@
 import todoContext from "../Context/todoContext";
 import { useContext, useState } from "react";
+import tododispatchContext from "../Context/tododispatchContext";
 
 // we need hear state we will make use of useContext api
 
@@ -7,6 +8,7 @@ export default function AddTodo() {
   // state for input element
   const [inputtext, setInputText] = useState("");
   const { list, setList } = useContext(todoContext);
+  const { dispatch } = useContext(tododispatchContext);
 
   return (
     <>
@@ -20,10 +22,7 @@ export default function AddTodo() {
       />
       <button
         onClick={() => {
-          setList([
-            ...list,
-            { id: list.length + 1, sub: inputtext, finished: false },
-          ]);
+          dispatch({ type: "add_todo", payload: { sub: inputtext } });
           setInputText("");
         }}
       >
