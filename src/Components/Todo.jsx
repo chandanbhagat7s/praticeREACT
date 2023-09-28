@@ -9,6 +9,8 @@ import TododispatchContext from "../Context/tododispatchContext";
 // reducer function and initial state
 
 export default function Todo() {
+  // useReducer hook takes reducer function and initial state
+  // returns state and dispatch method
   const [list, dispatch] = useReducer(todoReducers, []);
   // let [list, setList] = useState([
   //   { id: 1, sub: "learn react ", finished: false },

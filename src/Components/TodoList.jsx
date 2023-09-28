@@ -4,7 +4,9 @@ import TodoBox from "./TodoBox";
 import tododispatchContext from "../Context/tododispatchContext";
 
 export default function TodoList() {
-  const { list, setList } = useContext(todoContext);
+  // const { list, setList } = useContext(todoContext);
+  // after reducer no need to getout setList okk
+  const { list } = useContext(todoContext);
   const { dispatch } = useContext(tododispatchContext);
   const checkit = (data, el) => {
     dispatch({ type: "finish_todo", payload: { todo: el, finished: data } });
